@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Shape1 {
+class Shape {
 	void area(float base,float height) {
 	double  area=0.5*base*height;
 		System.out.println("Area of Triangle:"+area);
