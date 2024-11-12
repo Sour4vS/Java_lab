@@ -1,114 +1,112 @@
 import java.util.Scanner;
 
-class Worker {
-    String fullName, homeAddress;
-    int age;
-    long phoneNumber;
-    double salary;
+class Employee {
+    String Name, Address;
+    int Age;
+    long Ph;
+    double Salary;
 
-    Worker(String fullName, String homeAddress, int age, long phoneNumber, double salary) {
-        this.fullName = fullName;
-        this.homeAddress = homeAddress;
-        this.age = age;
-        this.phoneNumber = phoneNumber;
-        this.salary = salary;
+    Employee(String name, String address, int age, long ph, double salary) {
+        Name = name;
+        Address = address;
+        Age = age;
+        Ph = ph;
+        Salary = salary;
     }
-
-    void displayEmployeeDetails() {
-        System.out.println("Full Name: " + fullName);
-        System.out.println("Age: " + age);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("Home Address: " + homeAddress);
+    void printEmployee() {
+        System.out.println("Name: " + Name);
+        System.out.println("Age: " + Age);
+        System.out.println("Phone Number: " + Ph);
+        System.out.println("Address: " + Address);
     }
-
-    void displaySalary() {
-        System.out.println("Salary: " + salary);
+    void printSalary() {
+        System.out.println("Salary: " + Salary);
     }
 }
 
-class TeamLead extends Worker {
-    String teamName;
+class Manager extends Employee {
+    String Dep;
 
-    TeamLead(String fullName, String homeAddress, int age, long phoneNumber, double salary, String teamName) {
-        super(fullName, homeAddress, age, phoneNumber, salary);
-        this.teamName = teamName;
+    Manager(String name, String address, int age, long ph, double salary, String dep) {
+        super(name, address, age, ph, salary);
+        Dep = dep;
     }
 
-    void displayTeam() {
-        System.out.println(fullName + " leads the " + teamName + " team.");
-    }
-}
-
-class Specialist extends Worker {
-    String expertise;
-
-    Specialist(String fullName, String homeAddress, int age, long phoneNumber, double salary, String expertise) {
-        super(fullName, homeAddress, age, phoneNumber, salary);
-        this.expertise = expertise;
-    }
-
-    void displayExpertise() {
-        System.out.println(fullName + " specializes in " + expertise + ".");
+    void printDepartment() {
+        System.out.println(Name + " is from the " + Dep + " dep.");
     }
 }
 
-public class Organization {
+class Officer extends Employee {
+    String Spec;
+
+    Officer(String name, String address, int age, long ph, double salary, String spec) {
+        super(name, address, age, ph, salary);
+        Spec = spec;
+    }
+
+    void printSpecialization() {
+        System.out.println(Name + " is specialized in " + Spec + ".");
+    }
+}
+
+public class Inheritance {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String fullName, homeAddress, teamName, expertise;
+        String name, address, dep, spec;
         int age;
-        long phoneNumber;
+        long ph;
         double salary;
 
-        System.out.println("Enter the details of the Team Lead:");
-        System.out.print("Full Name: ");
-        fullName = sc.nextLine();
+        System.out.println("Enter the details of the Manager:");
+        System.out.print("Name: ");
+        name = sc.nextLine();
         System.out.print("Age: ");
         age = sc.nextInt();
         System.out.print("Phone Number: ");
-        phoneNumber = sc.nextLong();
+        ph = sc.nextLong();
         sc.nextLine(); 
-        System.out.print("Home Address: ");
-        homeAddress = sc.nextLine();
+        System.out.print("Address: ");
+        address = sc.nextLine();
         System.out.print("Salary: ");
         salary = sc.nextDouble();
         sc.nextLine();
-        System.out.print("Team Name: ");
-        teamName = sc.nextLine();
+        System.out.print("Department: ");
+        dep = sc.nextLine();
 
-        TeamLead lead = new TeamLead(fullName, homeAddress, age, phoneNumber, salary, teamName);
+        Manager mgr = new Manager(name, address, age, ph, salary, dep);
 
-        System.out.println("\nEnter the details of the Specialist:");
-        System.out.print("Full Name: ");
-        fullName = sc.nextLine();
+        System.out.println("\nEnter the details of the Officer:");
+        System.out.print("Name: ");
+        name = sc.nextLine();
         System.out.print("Age: ");
         age = sc.nextInt();
         System.out.print("Phone Number: ");
-        phoneNumber = sc.nextLong();
+        ph = sc.nextLong();
         sc.nextLine(); 
-        System.out.print("Home Address: ");
-        homeAddress = sc.nextLine();
+        System.out.print("Address: ");
+        address = sc.nextLine();
         System.out.print("Salary: ");
         salary = sc.nextDouble();
         sc.nextLine(); 
-        System.out.print("Expertise: ");
-        expertise = sc.nextLine();
+        System.out.print("Specialization: ");
+        spec = sc.nextLine();
 
-        Specialist specialist = new Specialist(fullName, homeAddress, age, phoneNumber, salary, expertise);
+        Officer off = new Officer(name, address, age, ph, salary, spec);
 
-        System.out.println("\nTHE DETAILS OF THE TEAM LEAD ARE:");
-        lead.displayEmployeeDetails();
-        lead.displaySalary();
-        lead.displayTeam();
+        System.out.println("\nTHE DETAILS OF THE MANAGER ARE:");
+        mgr.printEmployee();
+        mgr.printSalary();
+        mgr.printDepartment();
 
-        System.out.println("\nTHE DETAILS OF THE SPECIALIST ARE:");
-        specialist.displayEmployeeDetails();
-        specialist.displaySalary();
-        specialist.displayExpertise();
+        System.out.println("\nTHE DETAILS OF THE OFFICER ARE:");
+        off.printEmployee();
+        off.printSalary();
+        off.printSpecialization();
 
         sc.close();
     }
 }
-
+        
        
