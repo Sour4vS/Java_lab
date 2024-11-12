@@ -7,18 +7,20 @@ class Employee {
     double Salary;
 
     Employee(String name, String address, int age, long ph, double salary) {
-        Name = name;
-        Address = address;
-        Age = age;
-        Ph = ph;
-        Salary = salary;
+        this.Name = name;
+        this.Address = address;
+        this.Age = age;
+        this.Ph = ph;
+        this.Salary = salary;
     }
+
     void printEmployee() {
         System.out.println("Name: " + Name);
         System.out.println("Age: " + Age);
         System.out.println("Phone Number: " + Ph);
         System.out.println("Address: " + Address);
     }
+
     void printSalary() {
         System.out.println("Salary: " + Salary);
     }
@@ -29,7 +31,7 @@ class Manager extends Employee {
 
     Manager(String name, String address, int age, long ph, double salary, String dep) {
         super(name, address, age, ph, salary);
-        Dep = dep;
+        this.Dep = dep;
     }
 
     void printDepartment() {
@@ -42,7 +44,7 @@ class Officer extends Employee {
 
     Officer(String name, String address, int age, long ph, double salary, String spec) {
         super(name, address, age, ph, salary);
-        Spec = spec;
+        this.Spec = spec;
     }
 
     void printSpecialization() {
@@ -108,5 +110,5 @@ public class Inheritance {
         sc.close();
     }
 }
+
         
-       
