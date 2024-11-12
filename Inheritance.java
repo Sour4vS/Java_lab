@@ -1,29 +1,44 @@
-public class Inheritance {
+import java.util.Scanner;
+
+interface Person {
+    final int jobCode = 1050;
+
+    void acquireSkills(String skill);
+
+    void performTasks();
+}
+
+interface JobProcess {
+    void evaluate(int score);
+}
+
+class Developer implements Person, JobProcess {
+    public void acquireSkills(String skill) {
+        System.out.println("My area of expertise is: " + skill);
+    }
+
+    public void evaluate(int score) {
+        System.out.println("Interview Test Score: " + score);
+    }
+
+    public void performTasks() {
+        System.out.println("Assigned to the Development Role");
+    }
+}
+
+public class JobPlacement {
     public static void main(String[] args) {
-    Person person = new Person("sourav",19);
-    person.displayInfo();
+        Developer applicant = new Developer();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your area of expertise");
+        String skill = scanner.nextLine();
+        System.out.println("Enter your Interview Test Score");
+        int score = scanner.nextInt();
+        System.out.println("----PLACEMENT DETAILS----");
+        applicant.acquireSkills(skill);
+        applicant.evaluate(score);
+        applicant.performTasks();
+        System.out.println("My Job Code is: " + Person.jobCode);
+        scanner.close();
     }
 }
-class Person{
-    String name;
-    int age;
-    Person(String name, int age){
-        this.name = name;
-        this.age = age;
-    }
-    void displayInfo(){
-        System.out.println("name "+this.name);
-        System.out.println("age "+this.age);
-    }
-}
-    class student extends Person{
-    String studentId;
-    student(String name, String studentId, int age){
-        super(name, age);
-        this.studentId = studentId;
-    }
-    void displayInfo(){
-        super.displayInfo();
-        System.out.println("student id "+this.studentId);
-    }
-    }
